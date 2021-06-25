@@ -36,41 +36,49 @@ const AuthForm = (props) => {
     <div>
       {isLoggedIn ? (
         <Redirect to="/home" />
-      ) : (<div>
-        <form onSubmit={handleSubmit} name={name}>
-          <div>
-            <label htmlFor="username">
-              <small>Username</small>
-            </label>
-            <input name="username" type="text" />
-          </div>
+      ) : (
+        <div>
+          <form onSubmit={handleSubmit} name={name}>
+            <div>
+              <label htmlFor="username">
+                <small>Username</small>
+              </label>
+              <input name="username" type="text" />
+            </div>
+            {name === "signup" ? (
+              <div>
+                <label htmlFor="email">
+                  <small>Email</small>
+                </label>
+                <input name="email" type="email" />
+              </div>
+            ) : (
+              <div></div>
+            )}
+            <div>
+              <label htmlFor="password">
+                <small>Password</small>
+              </label>
+              <input name="password" type="password" />
+            </div>
+            <div>
+              <button type="submit">{displayName}</button>
+            </div>
+            {error && error.response && <div> {error.response.data} </div>}
+          </form>
           {name === "signup" ? (
             <div>
-              <label htmlFor="email">
-                <small>Email</small>
-              </label>
-                <input name="email" type="email" />
+              <a href="/auth/google">
+                <button type="button">Create an account with Google</button>
+              </a>
+              <footer>
+                If you create an account with Google, your username will be your
+                first name and your password your last!
+              </footer>
             </div>
           ) : (
             <div></div>
           )}
-          <div>
-            <label htmlFor="password">
-              <small>Password</small>
-            </label>
-            <input name="password" type="password" />
-          </div>
-          <div>
-            <button type="submit">{displayName}</button>
-          </div>
-          {error && error.response && <div> {error.response.data} </div>}
-          </form>
-          {name === 'signup' ? (<div>
-            <a href="/auth/google">
-            <button type='button'>Create an account with Google</button>
-            </a>
-            <footer>If you create an account with Google, your username will be your first name and your password your last!</footer></div>
-          ):(<div></div>)}
         </div>
       )}
     </div>

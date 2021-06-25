@@ -27,14 +27,36 @@ const Train = () => {
       notify();
     }
   };
+
+  const createButton = () => {
+    let btn = document.createElement("BUTTON");
+    btn.innerHTML = "new option";
+    btn.id = "class-d";
+    btn.addEventListener("click", () => addExample(3));
+    document.body.appendChild(btn);
+  };
   return (
     <div>
-      <button onClick={() => { app(); sum()}}>Train</button>
+      <button
+        onClick={() => {
+          app();
+          sum();
+        }}
+      >
+        Train
+      </button>
       <button id="class-a" onClick={() => handleClick()}>
         Add A
       </button>
-      <button id="class-b" onClick={() => handleClick()}>Add B</button>
-      <button id="class-c" onClick={() => handleClick()}>Add C</button>
+      <button id="class-b" onClick={() => handleClick()}>
+        Add B
+      </button>
+      <button id="class-c" onClick={() => handleClick()}>
+        Add C
+      </button>
+      <button type="button" onClick={() => createButton()}>
+        me
+      </button>
       <ToastContainer
         position="top-right"
         autoClose={500}
