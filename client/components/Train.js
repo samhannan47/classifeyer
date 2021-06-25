@@ -1,7 +1,7 @@
 import { render } from "enzyme";
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import app from "../../public";
+import app from "../../index";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 

@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { ppa } from "../../public/index.js";
 import history from "../history";
 
 const Me = () => {

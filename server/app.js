@@ -19,7 +19,7 @@ passport.deserializeUser(async (id, done) => {
 });
 
 app.use(passport.initialize());
-app.use(passport.session());
+	app.use(passport.session());
 
 // logging middleware
 app.use(morgan("dev"));
