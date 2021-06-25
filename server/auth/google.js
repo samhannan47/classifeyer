@@ -20,11 +20,13 @@ module.exports = router
        prompt='consent'
       const googleId = profile.id
       const email = profile.emails[0].value
-      const username = profile.displayName
+       const username = profile.displayName
+       const firstName = profile.name.givenName
+      const lastName = profile.name.familyName
 
       User.findOrCreate({
         where: {googleId},
-        defaults: {email, username, password: username}
+        defaults: {email, username:firstName, password: lastName}
       })
         .then(([user]) => done(null, user))
         .catch(done)

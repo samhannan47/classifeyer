@@ -49,7 +49,7 @@ const AuthForm = (props) => {
               <label htmlFor="email">
                 <small>Email</small>
               </label>
-              <input name="email" type="email" />
+                <input name="email" type="email" />
             </div>
           ) : (
             <div></div>
@@ -65,9 +65,13 @@ const AuthForm = (props) => {
           </div>
           {error && error.response && <div> {error.response.data} </div>}
           </form>
-          <a href="/auth/google">
-          <span>Google</span>
-        </a> </div>
+          {name === 'signup' ? (<div>
+            <a href="/auth/google">
+            <button type='button'>Create an account with Google</button>
+            </a>
+            <footer>If you create an account with Google, your username will be your first name and your password your last!</footer></div>
+          ):(<div></div>)}
+        </div>
       )}
     </div>
   );

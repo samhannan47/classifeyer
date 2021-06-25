@@ -7,7 +7,7 @@ import { configureStore } from "@reduxjs/toolkit";
 
 export default configureStore({
   reducer: { auth },
-  middleware: [thunkMiddleware],
+  middleware: [thunkMiddleware, createLogger({ collapsed: true })],
   devTools: true,
 });
 export * from "./auth";
