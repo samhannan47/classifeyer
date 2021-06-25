@@ -7,7 +7,7 @@ import Home from "./components/Home";
 import { me } from "./store";
 import AuthForm from "./components/AuthForm";
 import Welcome from "./components/Welcome";
-import Main from "./components/Main";
+import Train from "./components/Train";
 import Me from "./components/Me";
 
 /**
@@ -40,7 +40,7 @@ const Routes = () => {
           <AuthForm name="signup" />
         </Route>
         <Route path="/train">
-          <Main />
+          <Train />
         </Route>
         <Route path="/account">
           <Me />

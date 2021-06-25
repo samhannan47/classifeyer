@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import app from "../../public";
 
-const Main = () => {
+const Train = () => {
   return (
     <div>
       <button onClick={() => app()}>Train</button>
@@ -13,4 +13,4 @@ const Main = () => {
     </div>
   );
 };
-export default Main;
+export default Train;
