@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import { me } from "./store";
 import AuthForm from "./components/AuthForm";
 import Welcome from "./components/Welcome";
+import Main from "./components/Main";
 
 /**
  * COMPONENT
@@ -36,6 +37,9 @@ const Routes = () => {
         </Route>
         <Route path="/signup">
           <AuthForm name="signup" />
+        </Route>
+        <Route path="/train">
+          <Main />
         </Route>
       </Switch>
     </div>
