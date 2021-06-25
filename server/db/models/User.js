@@ -21,6 +21,7 @@ const User = db.define("user", {
       isEmail: true,
     },
   },
+  googleId: Sequelize.STRING
 });
 
 module.exports = User;

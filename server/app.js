@@ -1,8 +1,25 @@
 const path = require("path");
 const express = require("express");
 const morgan = require("morgan");
+const passport = require('passport');
+const {User}=require('./db/models/User')
 const app = express();
 module.exports = app;
+
+
+passport.serializeUser((user, done) => done(null, user.id));
+
+passport.deserializeUser(async (id, done) => {
+	try {
+		const user = await User.findByPk(id);
+		done(null, user);
+	} catch (err) {
+		done(err);
+	}
+});
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 // logging middleware
 app.use(morgan("dev"));
@@ -22,15 +39,15 @@ app.get("/", (req, res) =>
 app.use(express.static(path.join(__dirname, "..", "public")));
 
 // any remaining requests with an extension (.js, .css, etc.) send 404
-app.use((req, res, next) => {
-  if (path.extname(req.path).length) {
-    const err = new Error("Not found");
-    err.status = 404;
-    next(err);
-  } else {
-    next();
-  }
-});
+// app.use((req, res, next) => {
+//   if (path.extname(req.path).length) {
+//     const err = new Error("Not found");
+//     err.status = 404;
+//     next(err);
+//   } else {
+//     next();
+//   }
+// });
 
 // sends index.html
 app.use("*", (req, res) => {

@@ -36,7 +36,7 @@ const AuthForm = (props) => {
     <div>
       {isLoggedIn ? (
         <Redirect to="/home" />
-      ) : (
+      ) : (<div>
         <form onSubmit={handleSubmit} name={name}>
           <div>
             <label htmlFor="username">
@@ -64,7 +64,10 @@ const AuthForm = (props) => {
             <button type="submit">{displayName}</button>
           </div>
           {error && error.response && <div> {error.response.data} </div>}
-        </form>
+          </form>
+          <a href="/auth/google">
+          <span>Google</span>
+        </a> </div>
       )}
     </div>
   );
