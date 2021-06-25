@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { handleLogout } from "../store";
-
+import history from "../history";
 const Navbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.id);
   const dispatch = useDispatch();
@@ -10,6 +10,7 @@ const Navbar = () => {
   const handleClick = () => {
     dispatch(handleLogout());
   };
+
   return (
     <div id="navbar">
       <h1 className="title">Sam's Stackathon</h1>
@@ -39,8 +40,12 @@ const Navbar = () => {
           <button className="button is-danger" type="button">
             <Link to="/train">Get Going Here!</Link>
           </button>
-          <button className="button is-danger" type="button">
-            <Link to="/account">My Account</Link>
+          <button
+            className="button is-danger"
+            type="button"
+            onClick={() => (window.location = "/account")}
+          >
+            My Account
           </button>
         </span>
       </nav>

@@ -8,6 +8,7 @@ import { me } from "./store";
 import AuthForm from "./components/AuthForm";
 import Welcome from "./components/Welcome";
 import Main from "./components/Main";
+import Me from "./components/Me";
 
 /**
  * COMPONENT
@@ -40,6 +41,9 @@ const Routes = () => {
         </Route>
         <Route path="/train">
           <Main />
+        </Route>
+        <Route path="/account">
+          <Me />
         </Route>
       </Switch>
     </div>
