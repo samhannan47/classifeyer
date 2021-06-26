@@ -43,16 +43,26 @@ export async function app() {
     img.dispose();
   };
 
+  const snaps = (classId) => {
+    let counter = 0;
+    document.getElementById("note").innerText =
+      "Move object around! ...taking snapshots!";
+    let interval = setInterval(() => {
+      addExample(classId);
+      counter++;
+      document.getElementById("snaps").innerText = counter;
+      if (counter === 11) {
+        clearInterval(interval);
+        document.getElementById("snaps").innerText = "";
+        document.getElementById("note").innerText = "";
+      }
+    }, 1000);
+  };
+
   // When clicking a button, add an example for that class.
-  document
-    .getElementById("class-a")
-    .addEventListener("click", () => addExample(0));
-  document
-    .getElementById("class-b")
-    .addEventListener("click", () => addExample(1));
-  document
-    .getElementById("class-c")
-    .addEventListener("click", () => addExample(2));
+  document.getElementById("class-a").addEventListener("click", () => snaps(0));
+  document.getElementById("class-b").addEventListener("click", () => snaps(1));
+  document.getElementById("class-c").addEventListener("click", () => snaps(2));
 
   while (true) {
     if (classifier.getNumClasses() > 0) {
@@ -69,8 +79,8 @@ export async function app() {
         `${document.getElementById("class-c").innerHTML}`,
       ];
       document.getElementById("console").innerText = `
-        prediction: ${classes[result.label]}\n
-        probability: ${result.confidences[result.label]}
+        Prediction: ${classes[result.label]}\n
+        Probability: ${result.confidences[result.label] * 100}
       `;
 
       // Dispose the tensor to release the memory.
@@ -135,7 +145,11 @@ const Train = () => {
   };
   return (
     <div id="trainer">
+      <div id="note"></div>
+      <div id="snaps"></div>
       <button
+        id="train-btn"
+        className="bn24"
         onClick={() => {
           app();
           sum();
@@ -164,18 +178,20 @@ const Train = () => {
         pauseOnHover
       />
       <span>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} id="train-form">
           <label htmlFor="name">
-            <small>update your model here</small>
+            <small>
+              Update your model here with what button you want to change!
+            </small>
           </label>
           <input name="name" type="text" />
+          <select id="selector" onSelect={handleSubmit}>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
           <button type="submit">Submit</button>
         </form>
-        <select id="selector" onSelect={handleSubmit}>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-        </select>
       </span>
     </div>
   );
