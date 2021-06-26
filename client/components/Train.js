@@ -123,18 +123,7 @@ const Train = () => {
     console.log();
   };
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">
-          <small>update your model here</small>
-        </label>
-        <input name="name" type="text" />
-      </form>
-      <select id="selector" onSelect={handleSubmit}>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-      </select>
+    <div id="trainer">
       <button
         onClick={() => {
           app();
@@ -163,6 +152,19 @@ const Train = () => {
         draggable
         pauseOnHover
       />
+      <span>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="name">
+            <small>update your model here</small>
+          </label>
+          <input name="name" type="text" />
+        </form>
+        <select id="selector" onSelect={handleSubmit}>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </span>
     </div>
   );
 };
