@@ -23,7 +23,11 @@ img:hover {
   margin-left: auto;
   margin-right: auto;
 }
-
+#train-form {
+  border: solid 3px dodgerblue;
+  width: 50%;
+  border-radius: 10px;
+}
 a {
   text-decoration: none;
   color: white;
@@ -74,14 +78,58 @@ button {
 button:hover {
   background: url(https://images.assetsdelivery.com/compings_v2/chistoprudnaya/chistoprudnaya1106/chistoprudnaya110600006.jpg);
 }
-
+/* #train-btn {
+  position: fixed;
+  left: 200px;
+  top: 300px;
+} */
 #trainer {
   position: fixed;
   bottom: 35px;
   right: 10px;
   width: 800px;
 }
+#train-btn {
+  width: 160px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  margin: 20px;
+  height: 55px;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 50px;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  position: fixed;
+  left: 200px;
+  top: 300px;
+}
 
+#train-btn:hover {
+  background-position: 100% 0;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+#train-btn:focus {
+  outline: none;
+}
+
+#train-btn.bn24 {
+  background-image: linear-gradient(
+    to right,
+    #6253e1,
+    #852d91,
+    #a3a1ff,
+    #f24645
+  );
+  box-shadow: 0 4px 15px 0 rgba(126, 52, 161, 0.75);
+}
 .title {
   text-align: center;
   height: 100px;
@@ -110,6 +158,10 @@ header h2 {
   width: 80%;
   text-align: center;
 }
+video {
+  border-radius: 20px;
+}
+
 header a,
 a:visited {
   text-decoration: none;
@@ -226,4 +278,10 @@ a:visited {
   -o-animation: move-clouds-back 75s linear infinite;
   -webkit-animation: move-clouds-back 75s linear infinite;
   animation: move-clouds-back 75s linear infinite;
+}
+
+#console {
+  font-size: 32px;
+  left: 30px;
+  position: absolute;
 }
