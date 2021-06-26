@@ -158,6 +158,7 @@ const Train = () => {
             <small>update your model here</small>
           </label>
           <input name="name" type="text" />
+          <button type="submit">Submit</button>
         </form>
         <select id="selector" onSelect={handleSubmit}>
           <option value="1">1</option>
