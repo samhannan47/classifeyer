@@ -9,7 +9,12 @@ img {
   border-radius: 50%;
   height: 100px;
 }
-
+#welcomeFooter {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+  font-size: 18px;
+}
 img:hover {
   transform: scaleX(-1);
 }
@@ -37,6 +42,24 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+
+#logo {
+  height: 200px;
+}
+
+#logo:hover {
+  transform: scaleX(1);
+}
+#welcomeLogo {
+  height: 200px;
+  display: block;
+  margin-left: 0px;
+  margin-right: auto;
+  bottom: 50px;
+}
+#welcomeLogo:hover {
+  transform: scaleX(1);
+}
 button {
   background-color: #e0b0ff;
   border: none;
@@ -44,7 +67,7 @@ button {
   padding: 0.5em;
   margin: 0.5em !important;
   color: black;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   font-style: oblique;
 }
@@ -61,7 +84,7 @@ button:hover {
 
 .title {
   text-align: center;
-  border: 3px solid #e0b0ff;
+  height: 100px;
 }
 * {
   margin: 0;

@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 // import app from "../../index";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { me } from "../store";
 
 let isTraining = 0;
 let button1 = "Sam";
@@ -81,6 +82,16 @@ export async function app() {
 }
 
 const Train = () => {
+  const dispatch = useDispatch();
+  const loadInitialData = () => {
+    dispatch(me());
+  };
+
+  useEffect(() => {
+    console.log("hit");
+    loadInitialData();
+  });
+
   const notify = () =>
     toast.warn("you need to start training!", {
       position: "top-right",

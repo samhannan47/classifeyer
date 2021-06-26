@@ -1,15 +1,18 @@
 import React, { useEffect } from "react";
 import history from "../history";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import * as timeago from "timeago.js";
-
+import { me } from "../store";
 const Me = () => {
+  const dispatch = useDispatch();
+  const loadInitialData = () => {
+    dispatch(me());
+  };
+
   useEffect(() => {
-    //this works but doesnt turn of camera led
-    // var webcam = document.getElementById("webcam");
-    // webcam.pause();
-    // webcam.srcObject = null;
-  }, []);
+    console.log("hit");
+    loadInitialData();
+  });
 
   const username = useSelector((state) => state.auth.username);
   const createdAt = useSelector((state) => state.auth.createdAt);

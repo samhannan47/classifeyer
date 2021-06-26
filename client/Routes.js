@@ -16,13 +16,13 @@ import Me from "./components/Me";
 const Routes = () => {
   const dispatch = useDispatch();
 
-  const loadInitialData = () => {
-    dispatch(me());
-  };
+  // const loadInitialData = () => {
+  //   dispatch(me());
+  // };
 
-  useEffect(() => {
-    loadInitialData();
-  }, []);
+  // useEffect(() => {
+  //   loadInitialData();
+  // });
 
   return (
     <div>
