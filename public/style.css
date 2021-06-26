@@ -5,7 +5,14 @@ html {
 body {
   font-family: sans-serif;
 }
+img {
+  border-radius: 50%;
+  height: 100px;
+}
 
+img:hover {
+  transform: scaleX(-1);
+}
 #webcam {
   display: block;
   margin-left: auto;
@@ -36,9 +43,15 @@ button {
   border-radius: 1em !important;
   padding: 0.5em;
   margin: 0.5em !important;
-  color: white;
+  color: black;
   font-size: 24px;
+  font-weight: bold;
+  font-style: oblique;
 }
+button:hover {
+  background: url(https://images.assetsdelivery.com/compings_v2/chistoprudnaya/chistoprudnaya1106/chistoprudnaya110600006.jpg);
+}
+
 #trainer {
   position: fixed;
   bottom: 35px;

@@ -21,7 +21,13 @@ const User = db.define("user", {
       isEmail: true,
     },
   },
-  googleId: Sequelize.STRING
+  googleId: Sequelize.STRING,
+  imageUrl: {
+    type: Sequelize.STRING,
+
+    defaultValue:
+      "https://i.pinimg.com/originals/fc/71/f6/fc71f6cbc5c0dcca85566f944eecaa33.png",
+  },
 });
 
 module.exports = User;

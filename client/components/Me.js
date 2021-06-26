@@ -13,6 +13,7 @@ const Me = () => {
 
   const username = useSelector((state) => state.auth.username);
   const createdAt = useSelector((state) => state.auth.createdAt);
+  const picture = useSelector((state) => state.auth.imageUrl);
 
   return (
     <div>
@@ -21,6 +22,7 @@ const Me = () => {
       <span>
         Your account was created: {timeago.format(`${createdAt}`, "en_us")}
       </span>
+      <img src={picture} />
     </div>
   );
 };

@@ -23,10 +23,16 @@ const strategy = new GoogleStrategy(
     const username = profile.displayName;
     const firstName = profile.name.givenName;
     const lastName = profile.name.familyName;
+    const picture = profile.photos[0].value;
 
     User.findOrCreate({
       where: { googleId },
-      defaults: { email, username: firstName, password: lastName },
+      defaults: {
+        email,
+        username: firstName,
+        password: lastName,
+        imageUrl: picture,
+      },
     })
       .then(([user]) => done(null, user))
       .catch(done);
