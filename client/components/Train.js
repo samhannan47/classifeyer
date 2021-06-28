@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { me } from "../store";
 
 let isTraining = 0;
-let button1 = "Sam";
+let button1 = "Person";
 let button2 = "Dog";
 let button3 = "Giraffe";
 const classifier = knnClassifier.create();
@@ -44,14 +44,14 @@ export async function app() {
   };
 
   const snaps = (classId) => {
-    let counter = 0;
+    let count = 0;
     document.getElementById("note").innerText =
       "Move object around! ...taking snapshots!";
     let interval = setInterval(() => {
       addExample(classId);
-      counter++;
-      document.getElementById("snaps").innerText = counter;
-      if (counter === 11) {
+      count++;
+      document.getElementById("snaps").innerText = count;
+      if (count === 11) {
         clearInterval(interval);
         document.getElementById("snaps").innerText = "";
         document.getElementById("note").innerText = "";
@@ -98,7 +98,6 @@ const Train = () => {
   };
 
   useEffect(() => {
-    console.log("hit");
     loadInitialData();
   });
 
@@ -126,7 +125,6 @@ const Train = () => {
     evt.preventDefault();
     let name = evt.target.name.value;
     let value = document.getElementById("selector").value;
-    console.log(typeof value);
     if (Number(value) === 1) {
       document.getElementById("class-a").innerHTML = `${name}`;
     }
@@ -138,11 +136,6 @@ const Train = () => {
     }
   };
 
-  const editButton = (id) => {
-    let btn = document.getElementById(id);
-    btn.innerHTML = handleSubmit();
-    console.log();
-  };
   return (
     <div id="trainer">
       <div id="note"></div>

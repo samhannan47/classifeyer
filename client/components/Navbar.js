@@ -40,7 +40,7 @@ const Navbar = () => {
         )}
         <span id="products">
           <button type="button" onClick={() => (window.location = "/train")}>
-            CLICK ME!
+            Classifeye here!
           </button>
           <button type="button" onClick={() => (window.location = "/account")}>
             My Account

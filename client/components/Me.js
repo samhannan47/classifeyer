@@ -10,7 +10,6 @@ const Me = () => {
   };
 
   useEffect(() => {
-    console.log("hit");
     loadInitialData();
   });
 
@@ -20,11 +19,9 @@ const Me = () => {
 
   return (
     <div>
-      <span>Hi, {username}</span>
+      <p>Hi, {username}</p>
 
-      <span>
-        Your account was created: {timeago.format(`${createdAt}`, "en_us")}
-      </span>
+      <p>Your account was created: {timeago.format(`${createdAt}`, "en_us")}</p>
       <img src={picture} />
     </div>
   );
