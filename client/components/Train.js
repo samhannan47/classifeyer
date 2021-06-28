@@ -51,7 +51,7 @@ export async function app() {
       addExample(classId);
       count++;
       document.getElementById("snaps").innerText = count;
-      if (count === 11) {
+      if (count === 21) {
         clearInterval(interval);
         document.getElementById("snaps").innerText = "";
         document.getElementById("note").innerText = "";
